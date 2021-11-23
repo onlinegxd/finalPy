@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Coin article search page{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+  <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+      <h1>Please provide coin name</h1>
+      <br>
+      <form method="post">
+      <div>
+          <label>Coin: <input type="text" name="coin"></label>
+          <input type="submit" value="Submit">
+      </div>
+  </form>
+    <h2>Related articles</h2>
+    {% for article in articles %}
+    <p>Article:</p>
+    <div>{{ article }}</div>
+    <br>
+    {% endfor %}
+
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+</div>
+
+
+{% endblock %}
